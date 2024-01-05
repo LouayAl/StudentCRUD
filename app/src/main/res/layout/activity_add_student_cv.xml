@@ -1,0 +1,270 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_gravity="center"
+    tools:context=".addStudentCV">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/TxtStudent"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_margin="30dp"
+                android:textSize="34sp" />
+
+            <Button
+                android:id="@+id/btnSave"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="20dp"
+                android:backgroundTint="@color/colorPrimary"
+                android:text="SAVE" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/linearLayout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:orientation="vertical">
+
+            <Button
+                android:id="@+id/addEducationForm"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:layout_margin="15dp"
+                android:onClick="showEducationForm"
+                android:text="ADD EDUCATIONS" />
+
+            <LinearLayout
+                android:id="@+id/formEducation"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/addEducationForm"
+                android:orientation="vertical"
+                android:padding="15dp"
+                android:visibility="gone">
+
+                <EditText
+                    android:id="@+id/editEducationTitle"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="5dp"
+                    android:hint="Enter Title" />
+
+                <EditText
+                    android:id="@+id/editEducationStart"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="5dp"
+                    android:hint="Enter Start Date (example : 2024-01-01)" />
+
+                <EditText
+                    android:id="@+id/editEducationEnd"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="5dp"
+                    android:hint="Enter End Date (example : 2024-01-01)" />
+
+                <EditText
+                    android:id="@+id/editEducationDescription"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="5dp"
+                    android:hint="Enter Description" />
+
+                <Button
+                    android:id="@+id/addEducation"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Submit" />
+
+            </LinearLayout>
+
+            <Button
+                android:id="@+id/addExperienceForm"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:layout_margin="15dp"
+                android:onClick="showExperienceForm"
+                android:text="ADD EXPERIENCES" />
+
+            <LinearLayout
+                android:id="@+id/formExperience"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/addExperienceForm"
+                android:orientation="vertical"
+                android:padding="15dp"
+                android:visibility="gone">
+
+                <EditText
+                    android:id="@+id/editExperienceTitle"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="5dp"
+                    android:hint="Enter Title" />
+
+                <EditText
+                    android:id="@+id/editExperienceStart"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="5dp"
+                    android:hint="Enter Start Date (example : 2024-01-01)" />
+
+                <EditText
+                    android:id="@+id/editExperienceEnd"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="5dp"
+                    android:hint="Enter End Date (example : 2024-01-01)" />
+
+                <EditText
+                    android:id="@+id/editExperienceDescription"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="5dp"
+                    android:hint="Enter Description" />
+
+                <Button
+                    android:id="@+id/addExperience"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Submit" />
+
+            </LinearLayout>
+
+            <Button
+                android:id="@+id/addSkillForm"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:layout_margin="15dp"
+                android:onClick="showSkillForm"
+                android:text="ADD SKILLS" />
+
+            <LinearLayout
+                android:id="@+id/formSkill"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/addSkillForm"
+                android:orientation="vertical"
+                android:padding="15dp"
+                android:visibility="gone">
+
+                <EditText
+                    android:id="@+id/editSkillName"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="5dp"
+                    android:hint="Enter Skill Name" />
+
+                <EditText
+                    android:id="@+id/editSkillLevel"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="5dp"
+                    android:hint="Enter Skill Level" />
+
+                <Button
+                    android:id="@+id/addSkill"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Submit" />
+
+            </LinearLayout>
+
+            <Button
+                android:id="@+id/addLanguageForm"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:layout_margin="15dp"
+                android:onClick="showLanguageForm"
+                android:text="ADD LANGUAGES" />
+
+            <LinearLayout
+                android:id="@+id/formLanguage"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/addLanguageForm"
+                android:orientation="vertical"
+                android:padding="15dp"
+                android:visibility="gone">
+
+                <EditText
+                    android:id="@+id/editLanguageName"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="5dp"
+                    android:hint="Enter Language Name" />
+
+                <EditText
+                    android:id="@+id/editLanguageLevel"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="5dp"
+                    android:hint="Enter Language Level" />
+
+                <Button
+                    android:id="@+id/addLanguage"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Submit" />
+
+            </LinearLayout>
+
+            <Button
+                android:id="@+id/addInterestForm"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:layout_margin="15dp"
+                android:onClick="showInterestForm"
+                android:text="ADD INTERESTS" />
+
+            <LinearLayout
+                android:id="@+id/formInterest"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/addInterestForm"
+                android:orientation="vertical"
+                android:padding="15dp"
+                android:visibility="gone">
+
+                <EditText
+                    android:id="@+id/editInterestName"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="5dp"
+                    android:hint="Enter Interest Name" />
+
+                <Button
+                    android:id="@+id/addInterest"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Submit" />
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
