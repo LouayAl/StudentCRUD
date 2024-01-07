@@ -13,6 +13,12 @@
         android:theme="@style/Theme.StudentCRUD"
         tools:targetApi="31">
         <activity
+            android:name=".showAllStudents"
+            android:exported="false" />
+        <activity
+            android:name=".readStudent"
+            android:exported="false" />
+        <activity
             android:name=".addStudentCV"
             android:exported="false" />
         <activity

@@ -11,7 +11,7 @@ import androidx.annotation.Nullable;
 public class DatabaseHelper extends SQLiteOpenHelper {
 
     private static final String DATABASE_NAME = "Student.db";
-    public static final String col_ID = "ID";
+    public static final String col_ID = " _id";
 
     public static final String col_studentId = "studentId";
 
@@ -177,7 +177,20 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 
     public Cursor getAllStudents(){
         SQLiteDatabase db = this.getWritableDatabase();
-        return db.rawQuery("select * from "+TABLE_STUDENT,null);
+        return db.rawQuery("select * from Student",null);
     }
+
+    public Cursor getStudent(String id){
+        SQLiteDatabase db = this.getWritableDatabase();
+        String[] obj ={id};
+        return db.rawQuery("select * from Student where _id = " + id, null);
+    }
+
+    public Cursor getEducations(String id){
+        SQLiteDatabase db = this.getWritableDatabase();
+        return db.rawQuery("select * from Eduction where studentId = " +id , null);
+    }
+
+
 
 }
