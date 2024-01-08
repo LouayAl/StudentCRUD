@@ -191,6 +191,27 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         return db.rawQuery("select * from Eduction where studentId = " +id , null);
     }
 
+    public Cursor getExperiences(String id){
+        SQLiteDatabase db = this.getWritableDatabase();
+        return db.rawQuery("select * from Experience where studentId = " +id , null);
+    }
+
+    public Cursor getSkills(String id){
+        SQLiteDatabase db = this.getWritableDatabase();
+        return db.rawQuery("select * from Skill where studentId = " +id , null);
+    }
+
+    public Cursor getLanguages(String id){
+        SQLiteDatabase db = this.getWritableDatabase();
+        return db.rawQuery("select * from Language where studentId = " +id , null);
+    }
+
+    public Cursor getInterests(String id){
+        SQLiteDatabase db = this.getWritableDatabase();
+        return db.rawQuery("select * from Interest where studentId = " +id , null);
+    }
+
+
 
 
 }
