@@ -191,6 +191,116 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         return db.rawQuery("select * from Eduction where studentId = " +id , null);
     }
 
+    public Cursor getExperiences(String id){
+        SQLiteDatabase db = this.getWritableDatabase();
+        return db.rawQuery("select * from Experience where studentId = " +id , null);
+    }
+
+    public Cursor getSkills(String id){
+        SQLiteDatabase db = this.getWritableDatabase();
+        return db.rawQuery("select * from Skill where studentId = " +id , null);
+    }
+
+    public Cursor getLanguages(String id){
+        SQLiteDatabase db = this.getWritableDatabase();
+        return db.rawQuery("select * from Language where studentId = " +id , null);
+    }
+
+    public Cursor getInterests(String id){
+        SQLiteDatabase db = this.getWritableDatabase();
+        return db.rawQuery("select * from Interest where studentId = " +id , null);
+    }
+
+
+    public int updateStudent(String id, Integer age) {
+        System.out.println("called " + id + " " + age);
+        SQLiteDatabase db = this.getWritableDatabase();
+        ContentValues contentValues = new ContentValues();
+        contentValues.put(col_4_student, age);
+        return db.update(TABLE_STUDENT, contentValues,  col_ID + "=" + id, null);
+    }
+
+    public int updateEducation(String id, String t, String sd, String ed, String d) {
+        SQLiteDatabase db = this.getWritableDatabase();
+        ContentValues contentValues = new ContentValues();
+        contentValues.put(col_2_education, t);
+        contentValues.put(col_3_education, sd);
+        contentValues.put(col_4_education, ed);
+        contentValues.put(col_5_education, d);
+
+        int _inserted = db.update(TABLE_EDUCATION, contentValues, col_studentId + "=" + id, null);
+        if(_inserted >0 )
+            return 1;
+        else{
+            contentValues.put(col_studentId, id);
+            db.insert(TABLE_EDUCATION,null,contentValues);
+        }
+        return 1;
+    }
+
+    public int updateExperience(String id, String t, String sd, String ed, String d) {
+        SQLiteDatabase db = this.getWritableDatabase();
+        ContentValues contentValues = new ContentValues();
+        contentValues.put(col_2_experience, t);
+        contentValues.put(col_3_experience, sd);
+        contentValues.put(col_4_experience, ed);
+        contentValues.put(col_5_experience, d);
+        int _inserted = db.update(TABLE_EXPERIENCE, contentValues, col_studentId + "=" + id, null);
+        if(_inserted >0 )
+            return 1;
+        else{
+            contentValues.put(col_studentId, id);
+            db.insert(TABLE_EXPERIENCE,null,contentValues);
+        }
+        return 1;
+    }
+
+    public int updateSkill(String id, String n, String l) {
+        SQLiteDatabase db = this.getWritableDatabase();
+        ContentValues contentValues = new ContentValues();
+        contentValues.put(col_2_skill, n);
+        contentValues.put(col_3_skill, l);
+        int _inserted =  db.update(TABLE_SKILL, contentValues, col_studentId + "=" + id, null);
+
+        if(_inserted >0 )
+            return 1;
+        else{
+            contentValues.put(col_studentId, id);
+            db.insert(TABLE_SKILL,null,contentValues);
+        }
+        return 1;
+    }
+
+    public int updateLanguage(String id, String n, String l) {
+        SQLiteDatabase db = this.getWritableDatabase();
+        ContentValues contentValues = new ContentValues();
+        contentValues.put(col_2_language, n);
+        contentValues.put(col_3_language, l);
+        int _inserted =  db.update(TABLE_LANGUAGE, contentValues, col_studentId + "=" + id, null);
+
+        if(_inserted >0 )
+            return 1;
+        else{
+            contentValues.put(col_studentId, id);
+            db.insert(TABLE_LANGUAGE,null,contentValues);
+        }
+        return 1;
+    }
+
+    public int updateInterest(String id, String n) {
+        SQLiteDatabase db = this.getWritableDatabase();
+        ContentValues contentValues = new ContentValues();
+        contentValues.put(col_2_interest, n);
+        int _inserted =  db.update(TABLE_INTEREST, contentValues, col_studentId + "=" + id, null);
+
+        if(_inserted >0 )
+            return 1;
+        else{
+            contentValues.put(col_studentId, id);
+            db.insert(TABLE_INTEREST,null,contentValues);
+        }
+        return 1;
+    }
 
 
 }
