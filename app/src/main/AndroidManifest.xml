@@ -13,6 +13,9 @@
         android:theme="@style/Theme.StudentCRUD"
         tools:targetApi="31">
         <activity
+            android:name=".updateStudent"
+            android:exported="false" />
+        <activity
             android:name=".showAllStudents"
             android:exported="false" />
         <activity
