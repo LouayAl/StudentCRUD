@@ -28,7 +28,17 @@ public class addStudent extends AppCompatActivity {
         lastName = findViewById(R.id.edtFirstName);
         age = findViewById(R.id.edtAge);
         btnAdd = findViewById(R.id.AddData);
+        Button homeButton = findViewById(R.id.homeButton);
+        homeButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                // Create an Intent to navigate to MainActivity
+                Intent intent = new Intent(addStudent.this, MainActivity.class);
 
+                // Start the MainActivity
+                startActivity(intent);
+            }
+        });
         create();
     }
 

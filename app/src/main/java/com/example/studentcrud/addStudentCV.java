@@ -64,6 +64,17 @@ public class addStudentCV extends AppCompatActivity {
                 startActivity(new Intent(addStudentCV.this, MainActivity.class));
             }
         });
+        Button homeButton = findViewById(R.id.homeButton);
+        homeButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                // Create an Intent to navigate to MainActivity
+                Intent intent = new Intent(addStudentCV.this, MainActivity.class);
+
+                // Start the MainActivity
+                startActivity(intent);
+            }
+        });
 
         addEducation();
         addExperience();

@@ -11,11 +11,13 @@
         android:id="@+id/nameskillitem"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_weight="1" />
+        android:layout_weight="1"
+        android:textSize="20sp"/>
 
     <TextView
         android:id="@+id/levelskillitem"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_weight="1" />
+        android:layout_weight="1"
+        android:textSize="20sp"/>
 </LinearLayout>

@@ -9,6 +9,7 @@ import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
+import android.widget.Button;
 import android.widget.CursorAdapter;
 import android.widget.ListView;
 import android.widget.SimpleCursorAdapter;
@@ -46,7 +47,17 @@ public class showAllStudents extends AppCompatActivity {
             // Start the new activity
             startActivity(intent);
         });
+        Button homeButton = findViewById(R.id.homeButton);
+        homeButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                // Create an Intent to navigate to MainActivity
+                Intent intent = new Intent(showAllStudents.this, MainActivity.class);
 
+                // Start the MainActivity
+                startActivity(intent);
+            }
+        });
 
 
     }

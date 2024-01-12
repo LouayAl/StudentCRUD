@@ -211,7 +211,6 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         return db.rawQuery("select * from Interest where studentId = " +id , null);
     }
 
-
     public int updateStudent(String id, Integer age) {
         System.out.println("called " + id + " " + age);
         SQLiteDatabase db = this.getWritableDatabase();
@@ -301,6 +300,48 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         }
         return 1;
     }
+
+    public boolean deleteStudent(String id) {
+        SQLiteDatabase db = this.getWritableDatabase();
+        // Determine the table name for student based on the provided studentId
+        String tableName = getTableNameForStudentId(id);
+
+        // Define the WHERE clause to specify which student to delete
+        String whereClause = col_ID + " = ?";
+        // Specify the values for the WHERE clause
+        String[] whereArgs = {id};
+
+        // Perform the deletion and get the number of affected rows
+        int rowsDeleted = db.delete(tableName, whereClause, whereArgs);
+
+        // Close the database
+        db.close();
+
+        // Check if any rows were affected (i.e., the student was deleted)
+        return rowsDeleted > 0;
+    }
+
+    private String getTableNameForStudentId(String studentId) {
+        // You need to determine the table name based on the provided studentId
+        // For example, you can check the format of the studentId and decide the table name accordingly
+        // This is a placeholder method, replace it with your actual logic
+        // For simplicity, assuming studentId starts with a prefix indicating the table
+        if (studentId.startsWith("EDU")) {
+            return TABLE_EDUCATION;
+        } else if (studentId.startsWith("EXP")) {
+            return TABLE_EXPERIENCE;
+        } else if (studentId.startsWith("SK")) {
+            return TABLE_SKILL;
+        } else if (studentId.startsWith("LANG")) {
+            return TABLE_LANGUAGE;
+        } else if (studentId.startsWith("INT")) {
+            return TABLE_INTEREST;
+        } else {
+            // Default to the student table
+            return TABLE_STUDENT;
+        }
+    }
+
 
 
 }

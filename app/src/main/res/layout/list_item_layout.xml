@@ -12,12 +12,14 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:gravity="center_vertical"
-        android:orientation="vertical">
+        android:orientation="vertical"
+        android:layout_margin="20dp">
 
         <TextView
             android:id="@+id/iditemview"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content" />
+            android:layout_height="wrap_content"
+            android:textSize="20sp"/>
 
         <TextView
             android:id="@+id/firstnameitemview"
@@ -26,7 +28,8 @@
             android:layout_marginTop="16dp"
             android:gravity="bottom|left"
 
-            tools:ignore="RtlHardcoded" />
+            tools:ignore="RtlHardcoded"
+            android:textSize="20sp"/>
 
         <TextView
             android:id="@+id/lastnameitemview"
@@ -35,7 +38,8 @@
             android:layout_marginBottom="16dp"
             android:gravity="top|left"
 
-            tools:ignore="RtlHardcoded" />
+            tools:ignore="RtlHardcoded"
+            android:textSize="20sp"/>
 
     </LinearLayout>
 

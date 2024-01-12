@@ -12,6 +12,7 @@ import android.widget.EditText;
 import android.widget.ListView;
 import android.widget.SimpleCursorAdapter;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -27,8 +28,7 @@ public class readStudent extends AppCompatActivity {
     String title, startDate, endDate, description, endDateExperience, startDateExperience, titleExperience, descExperience, nameSkill, levelSkill, nameLanguage, levelLanguage, nameInterest;
 
     Button EditButton;
-
-
+    Button DeleteButton;
 
     String IdStudent ;
 
@@ -45,6 +45,7 @@ public class readStudent extends AppCompatActivity {
 
 
         EditButton = (Button) findViewById(R.id.editButton);
+        DeleteButton = (Button) findViewById(R.id.deleteButton);
         EditButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -81,13 +82,30 @@ public class readStudent extends AppCompatActivity {
                 startActivity(intent);
             }
         });
+        DeleteButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                // Call the deleteStudent method passing the student ID
+                deleteStudent(IdStudent);
+            }
+        });
+        Button homeButton = findViewById(R.id.homeButton);
+        homeButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                // Create an Intent to navigate to MainActivity
+                Intent intent = new Intent(readStudent.this, MainActivity.class);
+
+                // Start the MainActivity
+                startActivity(intent);
+            }
+        });
     }
 
     private void getpersonalinfo(){
         Intent intent = getIntent();
         DB = new DatabaseHelper(this);
         cursor = DB.getStudent(intent.getStringExtra("selectedId"));
-
 
         //pass the Id of student to the Update CV activity
         IdStudent = intent.getStringExtra("selectedId");
@@ -107,10 +125,6 @@ public class readStudent extends AppCompatActivity {
             } while (cursor.moveToNext());
         }
     }
-
-
-
-
 
     private void geteducations(){
         Intent intent = getIntent();
@@ -143,8 +157,6 @@ public class readStudent extends AppCompatActivity {
         Intent intent = getIntent();
         DB = new DatabaseHelper(this);
         cursor = DB.getExperiences(intent.getStringExtra("selectedId"));
-
-
         if (cursor != null && cursor.moveToFirst()){
             do {
                 titleExperience = cursor.getString(1);
@@ -154,8 +166,6 @@ public class readStudent extends AppCompatActivity {
 
             } while (cursor.moveToNext());
         }
-
-
 
         experienceList = findViewById(R.id.experiencelist);
         String[] fromColumns = {"title","startDate" , "endDate","description"};
@@ -231,6 +241,30 @@ public class readStudent extends AppCompatActivity {
         interestList.setAdapter(adapter);
 
     }
+
+    private void deleteStudent(String studentId) {
+        boolean isDeleted = DB.deleteStudent(studentId);
+        if (isDeleted) {
+            // If the deletion is successful, show a toast or perform any other actions
+            Toast.makeText(this, "Student deleted successfully", Toast.LENGTH_LONG).show();
+
+            // Create an intent to start the main activity
+            Intent intent = new Intent(readStudent.this, MainActivity.class);
+
+            // Set a flag to indicate that the activity should be refreshed
+            intent.putExtra("refresh", true);
+
+            // Start the main activity
+            startActivity(intent);
+
+            // Finish the current activity
+            finish();
+        } else {
+            // If the deletion fails, show an error message or perform appropriate error handling
+            Toast.makeText(this, "Failed to delete student", Toast.LENGTH_SHORT).show();
+        }
+    }
+
 
 
 }
