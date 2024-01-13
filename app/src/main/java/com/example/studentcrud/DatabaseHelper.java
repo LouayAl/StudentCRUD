@@ -322,10 +322,6 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     }
 
     private String getTableNameForStudentId(String studentId) {
-        // You need to determine the table name based on the provided studentId
-        // For example, you can check the format of the studentId and decide the table name accordingly
-        // This is a placeholder method, replace it with your actual logic
-        // For simplicity, assuming studentId starts with a prefix indicating the table
         if (studentId.startsWith("EDU")) {
             return TABLE_EDUCATION;
         } else if (studentId.startsWith("EXP")) {
